@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
         tags="@userManagement",
         publish = true
 )
-public class TestRunner {
+public class TestRunner_Crater {
 
 	
 }

@@ -1,9 +1,6 @@
 package step_definitions;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
-
 import craterPagesPOM.DashboardPOM;
 import craterPagesPOM.LoginPOM;
 import io.cucumber.java.en.Given;
