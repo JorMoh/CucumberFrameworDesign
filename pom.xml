@@ -58,7 +58,7 @@
 				<configuration>
 					<testFailureIgnore>false</testFailureIgnore>
 					<includes>
-						<include>**/TestRunner.java</include>
+						<include>**/TestRunner_AmazonSrch.java</include>
 					</includes>
 				</configuration>
 			</plugin>
