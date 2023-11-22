@@ -9,13 +9,13 @@ Feature: Crater User Management
 
   @validLoginTest @smokeTest
   Scenario: User is able to login successfully
-    When user enters valid "adminuser@primetechschool.com" and "Testing123"
+    When user enters valid "m.mohaidat877@gmail.com" and "Test1234"
     And clicks login button
     Then user should be on the dashboard page
     And user quits the browser
     
   @invalidLogin  
-  Scenario: Invalid login attempts
+  Scenario: Invalid login attempt
     When user enters invalid "ghd@yahoo.com" and "asdfsdfsg"
     And clicks login button
     Then an error message appears

@@ -1,9 +1,15 @@
 package utils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,6 +21,8 @@ import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 
 public class Driver {
 
+	static String url ="https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
+	
 public static WebDriver driver;
 	
 	public static WebDriver getDriver() {
@@ -52,6 +60,26 @@ public static WebDriver driver;
 				EdgeDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
 				break;
+			case "sauceLabs" :
+				ChromeOptions browserOptions = new ChromeOptions();
+				browserOptions.setCapability("platformName", "Windows 8.1");
+				browserOptions.setCapability("browserVersion", "108");
+				Map<String, Object> sauceOptions = new HashMap<>();
+				sauceOptions.put("build", "firstBuild");
+				sauceOptions.put("name", "amazonSearch");
+				sauceOptions.put("username", "oauth-m.muhaidat877-03861");
+				sauceOptions.put("accessKey", "dc5a3a8d-40b2-46f7-ab58-739934e47793");
+				browserOptions.setCapability("sauce:options", sauceOptions);
+				
+				try {
+					driver = new RemoteWebDriver(new URL(url), browserOptions);
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				break;
+				
 			default:
 				ChromeDriverManager.chromedriver().setup();
 				ChromeOptions Options = new ChromeOptions();

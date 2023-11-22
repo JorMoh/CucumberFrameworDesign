@@ -13,12 +13,12 @@ import utils.Driver;
 public class Hooks {
 	
 	@Before
-	public void beforeHook() {
+	public void setup() {
 		Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	@After
-	public void afterHook(Scenario scenario) {
+	public void teardown(Scenario scenario) {
 		if (scenario.isFailed()) {
 			final byte[] screenshot = ((TakesScreenshot) 
 					Driver.getDriver()).getScreenshotAs(OutputType.BYTES);

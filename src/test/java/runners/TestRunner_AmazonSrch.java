@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = "./src/test/resources/features/AmazonSearch.feature",
 		glue = "step_definitions",
 		dryRun = false,
-		tags = "@amazonSearchTest",
+		tags = "",
 		publish = true
 		)
 public class TestRunner_AmazonSrch {
